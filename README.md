@@ -1,7 +1,7 @@
 # Extension-API
 Documentation to help you create extensions for WebCull
 
-Index:
+# Index
 1. [Load current account](#load-current-account)
 1. [Modify bookmark details](#modify-bookmark-details)
 
