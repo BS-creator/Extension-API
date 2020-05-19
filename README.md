@@ -5,10 +5,12 @@ Documentation to help you create extensions for WebCull
 1. [General](#general)
 1. [Load current account](#load-current-account)
 1. [Modify bookmark details](#modify-bookmark-details)
+1. [Move bookmark](#move-bookmark)
+1. [Save bookmark](#save-bookmark)
 
 ## General
-#### Required header information
-All requests must have the following header information
+#### Required header data
+All requests must have the following header data
 Key            |Value
 ---------------|---------------------------------
 Content-Type   |application/x-www-form-urlencoded
@@ -22,26 +24,26 @@ Load the currently active account bookmark structure.
 ```
 #### POST params
 ```
-[
+{
 	"__DbSessionNamespaces" : WEBCULL_SESSION
-]
+}
 ```
 > *WEBCULL_SESSION: This is captured from the `__DbSessionNamespaces` key created by visiting `https://webcull.com`
 
 ##### Response when there's a session available
 ```
-[
+{
 	"success" : "TRUE",
 	"stacks" : [...]
-]
+}
 ```
 
 ##### Response when there's no session available
 ```
-[
+{
 	"success" : "TRUE",
 	"no_user" : "TRUE"
-]
+}
 ```
 
 ## Modify bookmark details
@@ -51,28 +53,133 @@ Load the currently active account bookmark structure.
 ```
 #### POST params
 ```
-[
+{
 	"__DbSessionNamespaces" : WEBCULL_SESSION,
 	proc : 'modify',
 	stack_id : STACK_ID,
 	name : KEY,
 	value : VALUE
-]
+}
 ```
 > KEY: Is a string with the value of `order_id`, `value`, `nickname`, `tags`, `notes`
 
 ##### Response when there's a session available
 ```
-[
+{
 	"success" : "TRUE",
 	"stacks" : [...]
-]
+}
 ```
 
 ##### Response when there's no session available
 ```
-[
+{
 	"success" : "TRUE",
 	"no_user" : "TRUE"
-]
+}
+```
+
+## Move bookmark
+```
+[POST] https://webcull.com/api/savelocation
+```
+#### POST params
+```
+{
+	"__DbSessionNamespaces" : WEBCULL_SESSION,
+	arrCrumbs : [STACK_ID, STACK_ID, NULL, NULL],
+	arrCrumbsValues : [NULL, NULL, NAME_OF_NEW_STACK, NAME_OF_NEW_STACK],
+	stack_id : STACK_ID
+}
+```
+
+##### Response when successful
+```
+{
+	"success" : "TRUE",
+	"stack_id" : STACK_ID,
+	"order_id" : ORDER,
+	"new_stack_ids" : [STACK_ID, STACK_ID]
+}
+```
+
+## Save bookmark
+```
+[POST] https://webcull.com/api/autosavelink
+```
+#### POST params
+```
+{
+	"__DbSessionNamespaces" : WEBCULL_SESSION,
+	url : WEBSITE_URL
+}
+```
+
+##### Response when the bookmark has already been saved
+```
+{
+	"bookmarks_found" : [{
+		"stack_id" : stack_id,
+		"web_data_id" : web_data_id,
+		"parent_id" : parent_id,
+		"is_url" : is_url,
+		"order_id" : order_id,
+		"nickname" : nickname,
+		"value" : value
+	}]
+}
+```
+
+##### Response when its a newly saved bookmark
+```
+{
+	"new_bookmark" : "true",
+	"user" : [
+		"hash" : "...",
+		"name" : "Bob",
+		"icon" : "..."
+	],
+	"stacks" : {
+		STACK_CLUSTER
+	}
+}
+```
+
+## Remove stacks
+```
+[POST] https://webcull.com/api/remove
+```
+#### POST params
+```
+{
+	"__DbSessionNamespaces" : WEBCULL_SESSION,
+	"stack_id" : [STACK_ID, STACK_ID, ...]
+}
+```
+
+##### Response successful
+```
+{
+	"success" : "true"
+}
+```
+
+## Process web data
+```
+[POST] https://webcull.com/api/process
+```
+#### POST params
+```
+{
+	"__DbSessionNamespaces" : WEBCULL_SESSION,
+	"web_data_id" : WEB_DATA_ID
+}
+```
+
+##### Response successful
+```
+{
+	"success" : "true",
+	...
+}
 ```
