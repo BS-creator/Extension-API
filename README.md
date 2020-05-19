@@ -45,7 +45,7 @@ Load the currently active account bookmark structure.
 	value : VALUE
 ]
 ```
-> KEY: The 
+> KEY: Is a string with the value of `order_id`, `value`, `nickname`, `tags`, `notes`
 
 ##### Response when there's a session available
 ```
