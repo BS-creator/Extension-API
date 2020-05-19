@@ -1,12 +1,12 @@
 # Extension-API
 Documentation to help you create extensions for WebCull
 
-## Initalize Account
+## Load current account
 Load the currently active account bookmark structure.
 ```
 [POST] https://webcull.com/api/load
 ```
-### [POST] params
+#### POST params
 ```
 [
   "__DbSessionNamespaces" : WEBCULL_SESSION
@@ -14,7 +14,7 @@ Load the currently active account bookmark structure.
 ```
 > *WEBCULL_SESSION: This is captured from the `__DbSessionNamespaces` key created by visiting `https://webcull.com`
 
-#### Response when there's a session available
+##### Response when there's a session available
 ```
 [
   "success" : "TRUE",
@@ -22,7 +22,40 @@ Load the currently active account bookmark structure.
 ]
 ```
 
-#### Response when there's no session available
+##### Response when there's no session available
+```
+[
+  "success" : "TRUE",
+  "no_user" : "TRUE"
+]
+```
+
+## Modify bookmark details
+Load the currently active account bookmark structure.
+```
+[POST] https://webcull.com/api/modify
+```
+#### POST params
+```
+[
+  "__DbSessionNamespaces" : WEBCULL_SESSION,
+  proc : 'modify',
+	stack_id : STACK_ID,
+	name : KEY,
+	value : VALUE
+]
+```
+> KEY: The 
+
+##### Response when there's a session available
+```
+[
+  "success" : "TRUE",
+  "stacks" : [...]
+]
+```
+
+##### Response when there's no session available
 ```
 [
   "success" : "TRUE",
