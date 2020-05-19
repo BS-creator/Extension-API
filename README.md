@@ -2,8 +2,8 @@
 Documentation to help you create extensions for WebCull
 
 Index:
-1. [Modify bookmark details](#modify-bookmark-details)
 1. [Load current account](#load-current-account)
+1. [Modify bookmark details](#modify-bookmark-details)
 
 ## Load current account
 Load the currently active account bookmark structure.
