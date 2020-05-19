@@ -2,8 +2,18 @@
 Documentation to help you create extensions for WebCull
 
 # Index
+1. [General](#general)
 1. [Load current account](#load-current-account)
 1. [Modify bookmark details](#modify-bookmark-details)
+
+## General
+#### Required header information
+All requests must have the following header information
+Key            |Value
+---------------|---------------------------------
+Content-Type   |application/x-www-form-urlencoded
+Accept-Encoding|gzip
+
 
 ## Load current account
 Load the currently active account bookmark structure.
