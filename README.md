@@ -9,7 +9,7 @@ Load the currently active account bookmark structure.
 #### POST params
 ```
 [
-  "__DbSessionNamespaces" : WEBCULL_SESSION
+	"__DbSessionNamespaces" : WEBCULL_SESSION
 ]
 ```
 > *WEBCULL_SESSION: This is captured from the `__DbSessionNamespaces` key created by visiting `https://webcull.com`
@@ -17,16 +17,16 @@ Load the currently active account bookmark structure.
 ##### Response when there's a session available
 ```
 [
-  "success" : "TRUE",
-  "stacks" : [...]
+	"success" : "TRUE",
+	"stacks" : [...]
 ]
 ```
 
 ##### Response when there's no session available
 ```
 [
-  "success" : "TRUE",
-  "no_user" : "TRUE"
+	"success" : "TRUE",
+	"no_user" : "TRUE"
 ]
 ```
 
@@ -50,15 +50,15 @@ Load the currently active account bookmark structure.
 ##### Response when there's a session available
 ```
 [
-  "success" : "TRUE",
-  "stacks" : [...]
+	"success" : "TRUE",
+	"stacks" : [...]
 ]
 ```
 
 ##### Response when there's no session available
 ```
 [
-  "success" : "TRUE",
-  "no_user" : "TRUE"
+	"success" : "TRUE",
+	"no_user" : "TRUE"
 ]
 ```
