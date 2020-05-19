@@ -7,6 +7,8 @@ Documentation to help you create extensions for WebCull
 1. [Modify bookmark details](#modify-bookmark-details)
 1. [Move bookmark](#move-bookmark)
 1. [Save bookmark](#save-bookmark)
+1. [Remove stacks](#remove-stacks)
+1. [Process web data](#process-web-data)
 
 ## General
 #### Required header data
