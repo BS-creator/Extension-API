@@ -89,8 +89,8 @@ Load the currently active account bookmark structure.
 ```
 {
 	"__DbSessionNamespaces" : WEBCULL_SESSION,
-	arrCrumbs : [STACK_ID, STACK_ID, NULL, NULL],
-	arrCrumbsValues : [NULL, NULL, NAME_OF_NEW_STACK, NAME_OF_NEW_STACK],
+	arrCrumbs : "STACK_ID, STACK_ID, NULL, NULL",
+	arrCrumbsValues : "NULL, NULL, NAME_OF_NEW_STACK, NAME_OF_NEW_STACK",
 	stack_id : STACK_ID
 }
 ```
@@ -100,8 +100,13 @@ Load the currently active account bookmark structure.
 {
 	"success" : "TRUE",
 	"stack_id" : STACK_ID,
-	"order_id" : ORDER,
-	"new_stack_ids" : [STACK_ID, STACK_ID]
+	"order_id" : ORDER_NUMBER,
+	"parent_id": PARENT_ID,
+	"new_stack_ids" : [
+		STACK_ID, 
+		STACK_ID, 
+		...
+	]
 }
 ```
 
@@ -120,26 +125,51 @@ Load the currently active account bookmark structure.
 ##### Response when the bookmark has already been saved
 ```
 {
-	"bookmarks_found" : [{
-		"stack_id" : stack_id,
-		"web_data_id" : web_data_id,
-		"parent_id" : parent_id,
-		"is_url" : is_url,
-		"order_id" : order_id,
-		"nickname" : nickname,
-		"value" : value
-	}]
+	"bookmarks_found" : [
+		{
+			"stack_id" : STACK_ID,
+			"parent_id" : PARENT_ID,
+			"web_data_id" : WEB_DATA_ID,
+			"is_url" : BOOL,
+			"order_id" : order_id,
+			"parse_date" : STRING,
+			"nickname" : STRING,
+			"value" : STRING,
+			"tags" : STRING,
+			"icon" : STRING,
+			"notes" : STRING,
+			"modified" : STRING,
+			"created" : STRING
+		}
+	],
+	"user" : [
+		"hash" : STRING,
+		"name" : STRING,
+		"icon" : STRING
+	],
+	"stacks" : {
+		STACK_CLUSTER
+	},
+	"success": "TRUE"
 }
 ```
 
 ##### Response when its a newly saved bookmark
 ```
 {
+	"web_data_id" : WEB_DATA_ID,
+	"value" : URL,
+	"parent_id" : 0,
+	"is_url" : BOOL,
+	"nickname" : STRING,
+	"order_id" : ORDER_NUMBER,
+	"stack_id" : STACK_ID,
+	"success" : TRUE,
 	"new_bookmark" : "true",
 	"user" : [
-		"hash" : "...",
-		"name" : "Bob",
-		"icon" : "..."
+		"hash" : STRING,
+		"name" : STRING,
+		"icon" : STRING
 	],
 	"stacks" : {
 		STACK_CLUSTER
@@ -155,7 +185,7 @@ Load the currently active account bookmark structure.
 ```
 {
 	"__DbSessionNamespaces" : WEBCULL_SESSION,
-	"stack_id" : [STACK_ID, STACK_ID, ...]
+	"stack_id" : "STACK_ID, STACK_ID, ..."
 }
 ```
 
@@ -181,7 +211,9 @@ Load the currently active account bookmark structure.
 ##### Response successful
 ```
 {
-	"success" : "true",
-	...
+	"phone": STRING,
+	"email": STRING,
+	"parse_date": TIMESTAMP,
+	"icon": STRING
 }
 ```
