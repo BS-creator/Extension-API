@@ -89,8 +89,8 @@ Load the currently active account bookmark structure.
 ```
 {
 	"__DbSessionNamespaces" : WEBCULL_SESSION,
-	arrCrumbs : "STACK_ID, STACK_ID, NULL, NULL",
-	arrCrumbsValues : "NULL, NULL, NAME_OF_NEW_STACK, NAME_OF_NEW_STACK",
+	arrCrumbs : "STACK_ID,STACK_ID,,",
+	arrCrumbsValues : ",,NAME_OF_NEW_STACK,NAME_OF_NEW_STACK",
 	stack_id : STACK_ID
 }
 ```
