@@ -4,6 +4,8 @@ Documentation to help you create extensions for WebCull
 # Index
 1. [General](#general)
 1. [Load current account](#load-current-account)
+1. [Get list of accounts](#get-list-of-accounts)
+1. [Switch an acount](#switch-an-account)
 1. [Modify bookmark details](#modify-bookmark-details)
 1. [Move bookmark](#move-bookmark)
 1. [Save bookmark](#save-bookmark)
