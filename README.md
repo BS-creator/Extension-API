@@ -30,7 +30,7 @@ Load the currently active account bookmark structure.
 	"__DbSessionNamespaces" : WEBCULL_SESSION
 }
 ```
-> *WEBCULL_SESSION: This is captured from the `__DbSessionNamespaces` key created by visiting `https://webcull.com`
+> *WEBCULL_SESSION: This is captured from the `__DbSessionNamespaces` cookie created by visiting `https://webcull.com`
 
 ##### Response when there's a session available
 ```
@@ -45,6 +45,73 @@ Load the currently active account bookmark structure.
 {
 	"success" : "TRUE",
 	"no_user" : "TRUE"
+}
+```
+
+## Get list of accounts
+Output a list of accounts that are currently authenticated on this session
+```
+[POST] https://webcull.com/api/accounts
+```
+#### POST params
+```
+{
+	"__DbSessionNamespaces" : WEBCULL_SESSION
+}
+```
+
+
+##### Response when there's users
+```
+{
+	"users": [
+		{
+			"name": "USERS_NAME",
+			"email": "USERS_EMAIL",
+			"icon": "USERS_ICON"
+		},
+		...
+	],
+	"success": "true"
+}
+```
+
+##### Response when there's no users
+```
+{
+	"users": [],
+	"success": "true"
+}
+```
+
+## Switch an acount
+Change the currently active account within the session (Only applies to user who have multiple accounts logged into one session)
+```
+[POST] https://webcull.com/api/switch
+```
+#### POST params
+```
+{
+	"__DbSessionNamespaces" : WEBCULL_SESSION,
+	"email" : "webfeeds@webcull.com"
+}
+```
+
+
+##### Response when successful
+```
+{
+	"stacks": STACK_OBJECT,
+	"account": "EMAIL_THAT_WAS_SWITCHED",
+	"success": "true"
+}
+```
+
+##### Response when unsuccessful
+```
+{
+	"success": "true",
+	"unavailable": "true"
 }
 ```
 
