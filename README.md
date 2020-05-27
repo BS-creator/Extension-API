@@ -12,6 +12,8 @@ Documentation to help you create extensions for WebCull
 1. [Remove stacks](#remove-stacks)
 1. [Process web data](#process-web-data)
 
+
+
 ## General
 #### Required header data
 All requests must have the following header data
@@ -19,6 +21,7 @@ Key            |Value
 ---------------|---------------------------------
 Content-Type   |application/x-www-form-urlencoded
 Accept-Encoding|gzip
+
 
 
 ## Load current account
@@ -49,6 +52,7 @@ Load the currently active account bookmark structure.
 	"no_user" : "TRUE"
 }
 ```
+
 
 ## Get list of accounts
 Output a list of accounts that are currently authenticated on this session
@@ -99,7 +103,6 @@ Change the currently active account within the session (Only applies to user who
 }
 ```
 
-
 ##### Response when successful
 ```
 {
@@ -116,6 +119,7 @@ Change the currently active account within the session (Only applies to user who
 	"unavailable": "true"
 }
 ```
+
 
 ## Modify bookmark details
 Load the currently active account bookmark structure.
@@ -134,6 +138,7 @@ Load the currently active account bookmark structure.
 ```
 > KEY: Is a string with the value of `order_id`, `value`, `nickname`, `tags`, `notes`
 
+
 ##### Response when there's a session available
 ```
 {
@@ -149,6 +154,7 @@ Load the currently active account bookmark structure.
 	"no_user" : "TRUE"
 }
 ```
+
 
 ## Move bookmark
 ```
@@ -178,6 +184,7 @@ Load the currently active account bookmark structure.
 	]
 }
 ```
+
 
 ## Save bookmark
 ```
@@ -246,6 +253,7 @@ Load the currently active account bookmark structure.
 }
 ```
 
+
 ## Remove stacks
 ```
 [POST] https://webcull.com/api/remove
@@ -264,6 +272,7 @@ Load the currently active account bookmark structure.
 	"success" : "true"
 }
 ```
+
 
 ## Process web data
 ```
@@ -286,6 +295,7 @@ Load the currently active account bookmark structure.
 	"icon": STRING
 }
 ```
+
 
 ## The end
 Are we missing something? Let us know on [twitter](https://twitter.com/webcull).
